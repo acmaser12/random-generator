@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Adam Maser
@@ -32,8 +29,13 @@ public class Generator {
             System.out.println("Error: File not found in project directory...");
         }
 
-        //randomly assign first names to last names
-        HashMap<String, String> fullNames = getFullNames(firstNames, lastNames);
+
+
+        // get a map of the values grouped by first name
+        HashMap<String, ArrayList<String>> fullNames = getFullNameMap(firstNames, lastNames);
+
+        // iterate through HashMap and display names grouped by last name
+        System.out.println(fullNames);
     }
 
     // loads first and last names from files and creates full names
@@ -49,9 +51,9 @@ public class Generator {
     }
 
     // generates pairs of first and last names
-    public static HashMap<String, String> getFullNames(ArrayList<String> firstNames, ArrayList<String> lastNames) {
+    public static HashMap<String, ArrayList<String>> getFullNameMap(ArrayList<String> firstNames, ArrayList<String> lastNames) {
         // HashMap container
-        HashMap<String, String> fullNames = new HashMap<>();
+        HashMap<String, ArrayList<String>> fullNames = new HashMap<>();
 
         // loop through and create full names until limit is met
         Random r = new Random();
@@ -61,7 +63,17 @@ public class Generator {
             int randomLastName = r.nextInt(lastNames.size());
 
             // get full name from params and store in HashMap
-            fullNames.put(lastNames.get(randomLastName), firstNames.get(randomFirstName));
+            if (fullNames.containsKey(firstNames.get(randomFirstName))) {
+
+                // adds last name to ArrayList at key of first name in HashMap
+                fullNames.get(firstNames.get(randomFirstName)).add(lastNames.get(randomLastName));
+            } else {
+
+                // create new ArrayList and put ArrayList at new first name key in HashMap
+                ArrayList<String> tempArrayList = new ArrayList<>();
+                tempArrayList.add(lastNames.get(randomLastName));
+                fullNames.put(firstNames.get(randomFirstName), tempArrayList);
+            }
         }
 
         // return full names
