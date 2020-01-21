@@ -63,6 +63,12 @@ public class Generator {
         }
     }
 
+    /**
+     * @param nameFile file of names, separated by newline character
+     * @return ArrayList of names, taken from file
+     * @throws FileNotFoundException if file is not found,
+     * exception thrown
+     */
     // loads first and last names from files and creates full names
     public static ArrayList<String> getNames(File nameFile) throws FileNotFoundException {
         // read files into arrays
@@ -74,7 +80,11 @@ public class Generator {
         return names;
     }
 
-    // generates pairs of first and last names
+    /**
+     * @param names ArrayList of full names
+     * @return HashMap of names grouped into keys of first names
+     * values that are in ArrayLists
+     */
     public static HashMap<String, ArrayList<String>> groupNames(ArrayList<String> names) {
         // HashMap container
         HashMap<String, ArrayList<String>> fullNames = new HashMap<>();
