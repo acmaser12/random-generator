@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f27089a-2aa5-462a-b817-ebe4cb7515fa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +98,7 @@
       <updated>1579054082915</updated>
       <workItem from="1579054085224" duration="2238000" />
       <workItem from="1579223444363" duration="4340000" />
-      <workItem from="1579392448800" duration="7516000" />
+      <workItem from="1579392448800" duration="7843000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1579054288765</created>
@@ -169,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579577208977</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Cleaned up code and created javadocs for each method.">
+      <created>1579577395956</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1579577395956</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +192,8 @@
     <MESSAGE value="Changed program to generate names into ArrayList. &#10;Created two Comparable classes for sorting full names by first and last name. &#10;Program is running and outputting first three objectives." />
     <MESSAGE value="Cleaned up code" />
     <MESSAGE value="Added ability to group names by first name. Program is now functioning fully" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to group names by first name. Program is now functioning fully" />
+    <MESSAGE value="Cleaned up code and created javadocs for each method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up code and created javadocs for each method." />
   </component>
   <component name="WindowStateProjectService">
     <state x="227" y="358" key="#Notifications" timestamp="1579054564138">
@@ -199,10 +208,10 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="512" y="409" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1361@0.23.2560.1361" timestamp="1579574316106" />
-    <state x="1182" y="256" key="CommitChangelistDialog2" timestamp="1579577208824">
+    <state x="1182" y="256" key="CommitChangelistDialog2" timestamp="1579577395823">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
-    <state x="1182" y="256" key="CommitChangelistDialog2/0.23.2560.1361@0.23.2560.1361" timestamp="1579577208824" />
+    <state x="1182" y="256" key="CommitChangelistDialog2/0.23.2560.1361@0.23.2560.1361" timestamp="1579577395823" />
     <state x="468" y="593" key="Github.ShareDialog" timestamp="1579054676236">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>

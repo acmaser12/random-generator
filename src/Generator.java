@@ -108,8 +108,6 @@ public class Generator {
                 fullNames.put(firstName, tempArrayList);
             }
         }
-
-        // return full names
         return fullNames;
     }
 
