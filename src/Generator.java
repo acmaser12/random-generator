@@ -7,7 +7,7 @@ import java.util.*;
  * CSC420
  * Week 1 Assignment
  * Random Number Generator
- * 1.15.19
+ * 1.20.2020
  */
 
 public class Generator {
@@ -35,14 +35,14 @@ public class Generator {
 
         // sort by first names and output
         System.out.println("\nSorted by First Name");
-        Collections.sort(fullNames, new SortByFirstName());
+        fullNames.sort(new SortByFirstName());
         for (String name: fullNames) {
             System.out.println("\t" + name);
         }
 
         // sort by last names and output
         System.out.println("\nSorted by Last Name");
-        Collections.sort(fullNames, new SortByLastName());
+        fullNames.sort(new SortByLastName());
         for (String name: fullNames) {
             System.out.println("\t" + name);
         }
@@ -57,7 +57,6 @@ public class Generator {
         while (nameReader.hasNextLine()) {
             names.add(nameReader.nextLine());
         }
-        // DEBUG System.out.println(firstNames);
         return names;
     }
 
@@ -113,15 +112,9 @@ public class Generator {
         }
         return fullNames;
     }
-
-    public static void printNames(ArrayList<String> names) {
-        for(String name : names) {
-            System.out.println(name);
-        }
-    }
-
 }
 
+// Comparator for sorting by first names
 class SortByFirstName implements Comparator<String> {
     @Override
     public int compare(String name1, String name2) {
@@ -129,6 +122,7 @@ class SortByFirstName implements Comparator<String> {
     }
 }
 
+// Comparator for sorting by last names
 class SortByLastName implements Comparator<String> {
     @Override
     public int compare(String name1, String name2) {
