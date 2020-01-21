@@ -47,6 +47,20 @@ public class Generator {
             System.out.println("\t" + name);
         }
 
+        // create map grouped by first name
+        System.out.println("\nCombine all names by First Name");
+        HashMap<String, ArrayList<String>> groupedFullNames = groupNames(fullNames);
+
+        // loop through map and output
+        Set<String> keys = groupedFullNames.keySet();
+        for (String key : keys) {
+            System.out.println("\t" + key);
+            ArrayList<String> values = groupedFullNames.get(key);
+            values.sort(new SortByFirstName()); // sorts the last names before output
+            for (String value : values) {
+                System.out.println("\t\t" + value);
+            }
+        }
     }
 
     // loads first and last names from files and creates full names
@@ -61,28 +75,27 @@ public class Generator {
     }
 
     // generates pairs of first and last names
-    public static TreeMap<String, ArrayList<String>> getFullNameMap(ArrayList<String> firstNames, ArrayList<String> lastNames) {
+    public static HashMap<String, ArrayList<String>> groupNames(ArrayList<String> names) {
         // HashMap container
-        TreeMap<String, ArrayList<String>> fullNames = new TreeMap<>();
+        HashMap<String, ArrayList<String>> fullNames = new HashMap<>();
 
         // loop through and create full names until limit is met
-        Random r = new Random();
         for (int i = 0; i < 20; i++) {
-            // generate random indices
-            int randomFirstName = r.nextInt(firstNames.size());
-            int randomLastName = r.nextInt(lastNames.size());
-
             // get full name from params and store in HashMap
-            if (fullNames.containsKey(firstNames.get(randomFirstName))) {
+            String[] name = names.get(i).split(" ");
+            String firstName = name[0];
+            String lastName = name[1];
 
-                // adds last name to ArrayList at key of first name in HashMap
-                fullNames.get(firstNames.get(randomFirstName)).add(lastNames.get(randomLastName));
+            // if fullNames map contains the first name, add to last name ArrayList
+            // else, add new key and ArrayList
+            if (fullNames.containsKey(firstName)) {
+                // add last name to ArrayList at key of first name in Map
+                fullNames.get(firstName).add(lastName);
             } else {
-
-                // create new ArrayList and put ArrayList at new first name key in HashMap
+                // create new ArrayList and put ArrayList at new first name key in Map
                 ArrayList<String> tempArrayList = new ArrayList<>();
-                tempArrayList.add(lastNames.get(randomLastName));
-                fullNames.put(firstNames.get(randomFirstName), tempArrayList);
+                tempArrayList.add(lastName);
+                fullNames.put(firstName, tempArrayList);
             }
         }
 
@@ -90,10 +103,11 @@ public class Generator {
         return fullNames;
     }
 
-    // pass in first and last name lists from file
-    // generate full name list
-    // print out generated names
-    // return full name list
+    /**
+     * @param firstNames ArrayList<String> of first names from file
+     * @param lastNames ArrayList<String> of last names from file
+     * @return list of randomly-generated full names in ArrayList<String>
+     */
     public static ArrayList<String> generateRandomNames(ArrayList<String> firstNames, ArrayList<String> lastNames) {
         // create container for full names
         ArrayList<String> fullNames = new ArrayList<>(20);
