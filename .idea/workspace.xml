@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f27089a-2aa5-462a-b817-ebe4cb7515fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/firstNames.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lastNames.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generator.java" afterDir="false" />
     </list>
@@ -99,7 +97,7 @@
       <updated>1579054082915</updated>
       <workItem from="1579054085224" duration="2238000" />
       <workItem from="1579223444363" duration="4340000" />
-      <workItem from="1579392448800" duration="1787000" />
+      <workItem from="1579392448800" duration="5691000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1579054288765</created>
@@ -143,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579226275523</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Corrected, refined, and refactored the getFullNameMap method. Now returns a HashMap of String, ArrayList&lt;String&gt;, grouped by first names.">
+      <created>1579396324603</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1579396324603</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +159,8 @@
     <MESSAGE value="Init commit" />
     <MESSAGE value="Added getNames method and calls from main. Program now reads two .txt files from storage and saves them in variables." />
     <MESSAGE value="Added getfullNames() method, provides ability to generate full names randomly from first and last name lists." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getfullNames() method, provides ability to generate full names randomly from first and last name lists." />
+    <MESSAGE value="Corrected, refined, and refactored the getFullNameMap method. Now returns a HashMap of String, ArrayList&lt;String&gt;, grouped by first names." />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected, refined, and refactored the getFullNameMap method. Now returns a HashMap of String, ArrayList&lt;String&gt;, grouped by first names." />
   </component>
   <component name="WindowStateProjectService">
     <state x="227" y="358" key="#Notifications" timestamp="1579054564138">
@@ -165,30 +171,34 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="91" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1579224674486" />
-    <state x="1322" y="256" key="CommitChangelistDialog2" timestamp="1579226275392">
+    <state x="512" y="409" key="#com.intellij.ide.util.MemberChooser" timestamp="1579574316106">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
-    <state x="1322" y="256" key="CommitChangelistDialog2/0.23.2560.1361@0.23.2560.1361" timestamp="1579226275392" />
+    <state x="512" y="409" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1361@0.23.2560.1361" timestamp="1579574316106" />
+    <state x="1322" y="256" key="CommitChangelistDialog2" timestamp="1579396324181">
+      <screen x="0" y="23" width="2560" height="1361" />
+    </state>
+    <state x="1322" y="256" key="CommitChangelistDialog2/0.23.2560.1361@0.23.2560.1361" timestamp="1579396324181" />
     <state x="468" y="593" key="Github.ShareDialog" timestamp="1579054676236">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="468" y="593" key="Github.ShareDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1579054676236" />
-    <state width="1284" height="373" key="GridCell.Tab.0.bottom" timestamp="1579395834712">
+    <state width="1284" height="1159" key="GridCell.Tab.0.bottom" timestamp="1579575690671">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
-    <state width="1284" height="373" key="GridCell.Tab.0.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1579395834712" />
-    <state width="1284" height="373" key="GridCell.Tab.0.center" timestamp="1579395834712">
+    <state width="1284" height="1159" key="GridCell.Tab.0.bottom/0.23.2560.1361@0.23.2560.1361" timestamp="1579575690671" />
+    <state width="1284" height="1159" key="GridCell.Tab.0.center" timestamp="1579575690671">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
-    <state width="1284" height="373" key="GridCell.Tab.0.center/0.23.2560.1361@0.23.2560.1361" timestamp="1579395834712" />
-    <state width="1284" height="373" key="GridCell.Tab.0.left" timestamp="1579395834711">
+    <state width="1284" height="1159" key="GridCell.Tab.0.center/0.23.2560.1361@0.23.2560.1361" timestamp="1579575690671" />
+    <state width="1284" height="1159" key="GridCell.Tab.0.left" timestamp="1579575690670">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
-    <state width="1284" height="373" key="GridCell.Tab.0.left/0.23.2560.1361@0.23.2560.1361" timestamp="1579395834711" />
-    <state width="1284" height="373" key="GridCell.Tab.0.right" timestamp="1579395834712">
+    <state width="1284" height="1159" key="GridCell.Tab.0.left/0.23.2560.1361@0.23.2560.1361" timestamp="1579575690670" />
+    <state width="1284" height="1159" key="GridCell.Tab.0.right" timestamp="1579575690671">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
-    <state width="1284" height="373" key="GridCell.Tab.0.right/0.23.2560.1361@0.23.2560.1361" timestamp="1579395834712" />
+    <state width="1284" height="1159" key="GridCell.Tab.0.right/0.23.2560.1361@0.23.2560.1361" timestamp="1579575690671" />
     <state x="227" y="433" key="Vcs.Push.Dialog.v2" timestamp="1579054692651">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
@@ -197,9 +207,9 @@
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
     <state x="334" y="491" key="git4idea.merge.GitPullDialog/0.23.2560.1361@0.23.2560.1361" timestamp="1579054640022" />
-    <state x="292" y="336" width="670" height="676" key="search.everywhere.popup" timestamp="1579224999406">
+    <state x="292" y="336" width="670" height="676" key="search.everywhere.popup" timestamp="1579573045359">
       <screen x="0" y="23" width="2560" height="1361" />
     </state>
-    <state x="292" y="336" width="670" height="676" key="search.everywhere.popup/0.23.2560.1361@0.23.2560.1361" timestamp="1579224999406" />
+    <state x="292" y="336" width="670" height="676" key="search.everywhere.popup/0.23.2560.1361@0.23.2560.1361" timestamp="1579573045359" />
   </component>
 </project>

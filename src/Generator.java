@@ -29,13 +29,24 @@ public class Generator {
             System.out.println("Error: File not found in project directory...");
         }
 
+        // get an ArrayList of full names and print
+        System.out.println("\nGenerated Names:");
+        ArrayList<String> fullNames = generateRandomNames(firstNames, lastNames);
 
+        // sort by first names and output
+        System.out.println("\nSorted by First Name");
+        Collections.sort(fullNames, new SortByFirstName());
+        for (String name: fullNames) {
+            System.out.println("\t" + name);
+        }
 
-        // get a map of the values grouped by first name
-        HashMap<String, ArrayList<String>> fullNames = getFullNameMap(firstNames, lastNames);
+        // sort by last names and output
+        System.out.println("\nSorted by Last Name");
+        Collections.sort(fullNames, new SortByLastName());
+        for (String name: fullNames) {
+            System.out.println("\t" + name);
+        }
 
-        // iterate through HashMap and display names grouped by last name
-        System.out.println(fullNames);
     }
 
     // loads first and last names from files and creates full names
@@ -51,9 +62,9 @@ public class Generator {
     }
 
     // generates pairs of first and last names
-    public static HashMap<String, ArrayList<String>> getFullNameMap(ArrayList<String> firstNames, ArrayList<String> lastNames) {
+    public static TreeMap<String, ArrayList<String>> getFullNameMap(ArrayList<String> firstNames, ArrayList<String> lastNames) {
         // HashMap container
-        HashMap<String, ArrayList<String>> fullNames = new HashMap<>();
+        TreeMap<String, ArrayList<String>> fullNames = new TreeMap<>();
 
         // loop through and create full names until limit is met
         Random r = new Random();
@@ -78,5 +89,54 @@ public class Generator {
 
         // return full names
         return fullNames;
+    }
+
+    // pass in first and last name lists from file
+    // generate full name list
+    // print out generated names
+    // return full name list
+    public static ArrayList<String> generateRandomNames(ArrayList<String> firstNames, ArrayList<String> lastNames) {
+        // create container for full names
+        ArrayList<String> fullNames = new ArrayList<>(20);
+
+        // generate random first name and last name
+        // store in fullNames container
+        Random r = new Random();
+        for (int i = 0; i < 20; i++) {
+            // generate random indices
+            int randomFirstName = r.nextInt(firstNames.size());
+            int randomLastName = r.nextInt(lastNames.size());
+
+            // add to fullNames container and print
+            fullNames.add(firstNames.get(randomFirstName) + " " + lastNames.get(randomLastName));
+            System.out.println("\t" + (i + 1) + ". " + fullNames.get(i));
+        }
+        return fullNames;
+    }
+
+    public static void printNames(ArrayList<String> names) {
+        for(String name : names) {
+            System.out.println(name);
+        }
+    }
+
+}
+
+class SortByFirstName implements Comparator<String> {
+    @Override
+    public int compare(String name1, String name2) {
+         return name1.compareTo(name2);
+    }
+}
+
+class SortByLastName implements Comparator<String> {
+    @Override
+    public int compare(String name1, String name2) {
+        // split names and save second item in array (last name) to lastName variables
+        String lastName1 = name1.split(" ")[1];
+        String lastName2 = name2.split(" ")[1];
+
+        // return comparison of last names
+        return lastName1.compareTo(lastName2);
     }
 }
